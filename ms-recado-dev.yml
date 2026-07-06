@@ -18,7 +18,8 @@ spring:
           jwk-set-uri: http://localhost:9000/oauth2/jwks
 # R2DBC
   r2dbc:
-    url: r2dbc:postgresql://localhost:5433/bdrecado
+    # url: r2dbc:postgresql://localhost:5433/bdrecado
+    url: r2dbc:postgresql://pg-recado-svc:5432/bdrecado
     #pguser/pgpass
     username: "${userbdrecado}"
     password: "${passbdrecado}"
@@ -30,7 +31,8 @@ spring:
 
 # Apache Kakfa Producer
   kafka:
-    bootstrap-servers: localhost:9092
+    # bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka-svc:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
