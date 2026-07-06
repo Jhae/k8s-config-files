@@ -1,0 +1,45 @@
+server:
+  port: 9011
+
+# Spring Cloud Config Client
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+spring:
+# Oauth2 Resource Server
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000
+          jwk-set-uri: http://localhost:9000/oauth2/jwks
+# R2DBC
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5433/bdrecado
+    #pguser/pgpass
+    username: "${userbdrecado}"
+    password: "${passbdrecado}"
+    pool:
+      enabled: true
+      validation-query: SELECT 1
+  jackson:
+    default-property-inclusion: non_null
+
+# Apache Kakfa Producer
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#  Logs
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
+    com:
+      jarones:
+        ms_recado: DEBUG

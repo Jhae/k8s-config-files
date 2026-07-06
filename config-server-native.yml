@@ -1,0 +1,7 @@
+server:
+  port: 9002
+data:
+  juego: siii
+
+#        git:
+#          uri: https://github.com/Jhae/jarones-config-server.git

@@ -1,0 +1,24 @@
+# Puerto y cookie
+server:
+  port: 9000
+#    servlet:
+#      session:
+#        cookie:
+#          name: AUTHS_SESSION      # Nombre único para el panel de control/login
+#          path: /                  # Mantiene el acceso a todos sus endpoints internos
+#          secure: false            # true para producción
+#          http-only: true
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bdusuarios
+    username: "${userbdusuarios}"
+    password: "${passbdusuarios}"
+    driver-class-name: org.postgresql.Driver
+
+# Logs
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        

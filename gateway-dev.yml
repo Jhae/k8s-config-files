@@ -1,0 +1,49 @@
+# Puerto y cookie
+server:
+  port: 9003
+  reactive:
+    session:
+      cookie:
+        name: GT_SESSION
+        path: /
+        same-site: Lax      # antes lax (minucula)
+        secure: false       # true para prod, la cookie solo ira cifrada bajo HTTPS
+        http-only: true
+
+spring:
+# Rutas Gateway
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: ms-recado
+              uri: http://localhost:9011
+              predicates:
+                - Path=/**
+              filters:
+                - TokenRelay
+# Oauth2 Client
+  security:
+    oauth2:
+      client:
+        registration:
+          mi-gateway:
+            client-id: migateway
+            client-secret: migate
+            scope: openid, profile
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+        provider:
+          mi-gateway:
+            issuer-uri: "http://localhost:9000"
+
+# Logs
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
+    com:
+      jarones:
+        ms_recado: DEBUG
