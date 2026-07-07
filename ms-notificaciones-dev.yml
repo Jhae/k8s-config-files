@@ -14,8 +14,9 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:9000
-          jwk-set-uri: http://localhost:9000/oauth2/jwks
+          # issuer-uri: http://localhost:9000
+          issuer-uri: http://auth-server-svc:9000
+          # jwk-set-uri: http://localhost:9000/oauth2/jwks
 
 # Kafka Consumr
   kafka:
