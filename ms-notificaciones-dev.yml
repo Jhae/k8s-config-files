@@ -1,0 +1,38 @@
+server:
+  port: 9012
+
+# Spring Cloud Config Client
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+spring:
+# Oauth2 Resource Server
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000
+          jwk-set-uri: http://localhost:9000/oauth2/jwks
+
+# Kafka Consumr
+  kafka:
+    # bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka-svc:9092
+    consumer:
+      group-id: gp-notificaciones
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+# Logs
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
+    com:
+      jarones:
+        ms_recado: DEBUG
