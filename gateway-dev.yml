@@ -18,7 +18,8 @@ spring:
         webflux:
           routes:
             - id: ms-recado
-              uri: http://localhost:9011
+              # uri: http://localhost:9011
+              uri: http://ms-recado-svc:9011
               predicates:
                 - Path=/**
               filters:
@@ -36,7 +37,8 @@ spring:
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
         provider:
           mi-gateway:
-            issuer-uri: "http://localhost:9000"
+            # issuer-uri: "http://localhost:9000"
+            issuer-uri: "http://auth-server-svc:9000"
 
 # Logs
 logging:
