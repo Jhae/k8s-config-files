@@ -19,12 +19,18 @@ spring:
           routes:
             - id: ms-recado
               # uri: http://localhost:9011
-              uri: http://ms-recado-svc:9011
               predicates:
-                - Path=/ms-recado/v1/**
+                - Path=/api/ms-recado/v1/**
+              uri: http://ms-recado-svc:9011
               filters:
                 - TokenRelay
-                - StripPrefix=2
+                - StripPrefix=3
+            - id: fe-recado
+              predicates:
+                - Path=/fe
+              uri: http://localhost:4200
+              filters:
+                - StripPrefix=1
 # Oauth2 Client
   security:
     oauth2:
