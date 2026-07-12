@@ -17,6 +17,13 @@ spring:
       server:
         webflux:
           routes:
+            - id: auth-server
+              # uri: http://localhost:9011
+              predicates:
+                - Path=/auth-server/v1/**
+              uri: http://auth-server-svc:9000
+              filters:
+                - StripPrefix=2
             - id: ms-recado
               # uri: http://localhost:9011
               predicates:
