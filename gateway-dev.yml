@@ -51,8 +51,11 @@ spring:
         provider:
           mi-gateway:
             # issuer-uri: "http://localhost:9000"
-            issuer-uri:  "http://localhost:9003/auth-server/v1"
+            # issuer-uri:  "http://localhost:9003/auth-server/v1"
+            authorization-uri: "http://auth-server-svc:9000/oauth2/authorize"
+            token-uri: "http://auth-server-svc:9000/oauth2/token"
             jwk-set-uri: "http://auth-server-svc:9000/oauth2/jwks"
+            user-info-uri: "http://auth-server-svc:9000/userinfo"
 
 # Logs
 logging:
