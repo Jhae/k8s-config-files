@@ -18,7 +18,6 @@ spring:
         webflux:
           routes:
             - id: auth-server
-              # uri: http://localhost:9011
               predicates:
                 - Path=/auth-server/v1/**
               uri: http://auth-server-svc:9000
@@ -52,7 +51,8 @@ spring:
         provider:
           mi-gateway:
             # issuer-uri: "http://localhost:9000"
-            issuer-uri: "http://auth-server-svc:9000"
+            issuer-uri:  "http://localhost:9003/auth-server/v1"
+            jwk-set-uri: "http://auth-server-svc:9000/oauth2/jwks"
 
 # Logs
 logging:
