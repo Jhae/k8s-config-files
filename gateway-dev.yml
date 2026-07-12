@@ -27,7 +27,7 @@ spring:
                 - StripPrefix=3
             - id: fe-recado
               predicates:
-                - Path=/fe
+                - Path=/fe-recado/**
               uri: http://fe-recado-svc:4200
               filters:
                 - StripPrefix=1
