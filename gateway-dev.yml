@@ -28,7 +28,7 @@ spring:
             - id: fe-recado
               predicates:
                 - Path=/fe
-              uri: http://localhost:4200
+              uri: http://fe-recado-svc:4200
               filters:
                 - StripPrefix=1
 # Oauth2 Client
