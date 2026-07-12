@@ -30,7 +30,7 @@ spring:
                 - Path=/fe-recado/**
               uri: http://fe-recado-svc:4200
               filters:
-                - StripPrefix=1
+                # - StripPrefix=1
 # Oauth2 Client
   security:
     oauth2:
