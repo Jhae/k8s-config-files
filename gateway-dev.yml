@@ -6,8 +6,8 @@ server:
       cookie:
         name: GT_SESSION
         path: /
-        same-site: None      # antes lax (minucula)
-        secure: true       # true para prod, la cookie solo ira cifrada bajo HTTPS
+        same-site: lax      # antes lax (minucula)
+        secure: false       # true para prod, la cookie solo ira cifrada bajo HTTPS
         http-only: true
 
 spring:
