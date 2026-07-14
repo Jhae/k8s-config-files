@@ -7,7 +7,7 @@ server:
       cookie:
         name: GT_SESSION
         path: /
-        same-site: lax      # antes lax (minucula)
+        same-site: Lax      # antes lax (minucula)props, pero para java Lax
         secure: false       # true para prod, la cookie solo ira cifrada bajo HTTPS
         http-only: true
 
