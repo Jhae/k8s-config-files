@@ -34,6 +34,15 @@ spring:
               filters:
                 - TokenRelay
                 - StripPrefix=3
+
+            - id: ms-notificaciones
+              predicates:
+                - Path=/api/ms-notificaciones/v1/**
+              uri: http://ms-notificaciones-svc:9012
+              filters:
+                - TokenRelay
+                - StripPrefix=3
+
             - id: fe-recado
               predicates:
                 - Path=/fe-recado/**
