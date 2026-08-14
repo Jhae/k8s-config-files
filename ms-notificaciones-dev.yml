@@ -18,6 +18,15 @@ spring:
           issuer-uri: http://auth-server-svc:9000
           # jwk-set-uri: http://localhost:9000/oauth2/jwks
 
+          
+  # Azure Key Vault
+  cloud:
+    azure:
+      keyvault:
+        secret:
+          property-sources:
+            - name: "my-azure-keyvault"
+              endpoint: "https://recado-kvault.vault.azure.net/"
 # Kafka Consumr
   kafka:
     # bootstrap-servers: localhost:9092
