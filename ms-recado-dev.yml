@@ -41,7 +41,11 @@ spring:
 # Apache Kakfa Producer
   kafka:
     # bootstrap-servers: localhost:9092
-    bootstrap-servers: kafka-svc:9092
+    # Contenedor kafka
+    # bootstrap-servers: kafka-svc:9092
+
+    # Azure Hub namespace
+    bootstrap-servers: recadokafka.servicebus.windows.net:9093
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
